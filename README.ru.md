@@ -7,7 +7,7 @@ JavaScript и внутренностей браузера, на примере �
 [JoinSheets](https://github.com/JoinSheets/JoinSheets).
 
 **Доступен только на русском
-языке :((**.
+языке :((**
 
 Подключён как git submodule к разделу «Учебный курс: Прожарка JS-проекта с помощью Rust» документации на
 [joinsheets.github.io](https://joinsheets.github.io/).
