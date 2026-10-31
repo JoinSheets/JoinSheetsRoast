@@ -47,8 +47,7 @@ Lodash (`throttle`/`debounce`) и одинаково уместны что дл�
 частном варианте — полный `store.dispatch` на каждый `scroll`-тик, то есть
 reducer → `render()` → `renderGrid()` → `clear()` и перестройка тысяч
 `<tr>` (главы 3 и 6), — и была мотивирующей причиной батчинга построчного
-рендера, добавленного в `ds-webui` в версии 0.31.0a1 и разбираемого ниже:
-здесь задача решена не универсальным throttle/debounce, а отдельным, узким
+рендера, добавленного в проект и разбираемого ниже: задача решена не универсальным throttle/debounce, а отдельным, узким
 механизмом, обходящим дорогой путь `dispatch` вовсе.
 
 ### `requestAnimationFrame`: встроиться точно перед следующим кадром
@@ -88,19 +87,17 @@ layout/paint текущего кадра, а не просто вот-вот н�
   https://lodash.com/docs/4.17.15#debounce
 - MDN, **DocumentFragment** — зачем вставлять пачкой, а не по одному узлу:
   https://developer.mozilla.org/ru/docs/Web/API/DocumentFragment
-- MDN, **Element.scrollTop / scrollHeight / clientHeight** — три числа, на
-  которых держится весь расчёт порога догрузки:
+- MDN, **Element.scrollTop / scrollHeight / clientHeight** — три числа, на которых держится весь расчёт порога догрузки:
   https://developer.mozilla.org/ru/docs/Web/API/Element/scrollTop
   https://developer.mozilla.org/ru/docs/Web/API/Element/scrollHeight
   https://developer.mozilla.org/ru/docs/Web/API/Element/clientHeight
-- **Reflow / layout thrashing** — почему чередование чтения геометрии и записи
-  в DOM особенно дорого (у нас этого удалось избежать, но знать стоит):
+- **Reflow / layout thrashing** — почему чередование чтения геометрии и записи в DOM особенно дорого (у нас этого удалось избежать, но знать стоит):
   https://developer.mozilla.org/en-US/docs/Glossary/Reflow
 - **Chrome DevTools, Performance panel** — как читать флейм-чарт, Bottom-Up,
   Self Time:
   https://developer.chrome.com/docs/devtools/performance
 - **IntersectionObserver** — современная альтернатива ручному
-  `scroll`-обработчику для «догрузить, когда доскроллили»; `ds-webui` его не
+  `scroll`-обработчику для «догрузить, когда доскроллили»; проект его не
   использует, но для сравнения подходов полезно:
   https://developer.mozilla.org/ru/docs/Web/API/Intersection_Observer_API
 - **clusterize.js** — библиотека, чей подход к виртуализации изучался перед
@@ -190,7 +187,7 @@ currentEnsureMemberRendered = function (ridx) {
 один раз на клик "найти", не на каждый скролл-тик — цена несопоставима с
 тем, что заменяет (полный передиспетч и ререндер).
 
-## 3. Упражнения (бумага)
+## 3. Практика
 
 **9.1** Таблица на 15000 строк, `ROW_RENDER_BATCH = 1000`. Пользователь
 плавно долистывает от начала до конца. Сколько раз вызовется `renderMore` с
@@ -199,7 +196,7 @@ currentEnsureMemberRendered = function (ridx) {
 величины — десятки? сотни?) — и почему эти два числа совсем не обязаны
 совпадать.
 
-**9.2** В СТАРОЙ (до батчинга) версии тот же скролл по той же таблице
+**9.2** В более ранней (до батчинга) версии тот же скролл по той же таблице
 вызывал бы полный `store.dispatch`+`render()` на каждое срабатывание
 `scroll`. Опишите словами разницу в "стоимости одного тика" между старой и
 новой версией — что именно убрали из пути выполнения (reducer? `clear()`?
@@ -213,7 +210,7 @@ renderedCount` истинно большую часть времени — пу�
 throttle/debounce были бы НЕОБХОДИМЫ (если бы сама проверка внутри
 обработчика была дорогой, а не O(1) арифметикой).
 
-## 4. Упражнения в DevTools
+## 4. DevTools
 
 **9.4 — Performance, запись реального скролла.** Загрузите большой пресет
 (или временно поднимите тестовые данные), откройте «Таблицу», откройте
@@ -268,7 +265,7 @@ fn group_by<'a, T, K: Eq + std::hash::Hash, F: Fn(&T) -> K>(items: &'a [T], key_
 быстро эта же логика выполняется в "чистом" Rust без накладных расходов на
 пересечение границы JS↔WASM.
 
-## 6. Проверка понимания
+## 6. Вопросы для самопроверки
 
 Сможете ли вы объяснить коллеге одним абзацем, ПОЧЕМУ скролл-слушатель
 `renderMore` в принципе не может быть реализован через `store.dispatch`, не
