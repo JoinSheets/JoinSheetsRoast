@@ -14,7 +14,7 @@ defaultLightingMode = "auto"
 # browser's cache can keep serving an old copy for a while. Bump the ?v=
 # query by one on every edit to this file (same convention as the main
 # site), so the URL itself changes and caches can't paper over an update.
-customCSS = ["/css/custom.css?v=1"]
+customCSS = ["/css/custom.css?v=2"]
 
 [search]
 on = false
