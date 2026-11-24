@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  
+  <rect x="70" y="60" width="240" height="240" rx="42" fill="none" stroke="#2b2b2e" stroke-width="16"/>
+  <rect x="170" y="90" width="200" height="200" rx="42" fill="none" stroke="#86868a" stroke-width="16"/>
+  <rect x="120" y="200" width="180" height="180" rx="42" fill="none" stroke="#d98f2b" stroke-width="16"/>
+  <text x="205" y="210" font-family="Arial, sans-serif" font-weight="700" font-size="92" fill="#2b2b2e" text-anchor="middle">J</text>
+  <text x="300" y="300" font-family="Arial, sans-serif" font-weight="700" font-size="92" fill="#86868a" text-anchor="middle">S</text>
+  <circle cx="372" cy="372" r="62" fill="white" stroke="#2b2b2e" stroke-width="3"/>
+  <circle cx="372" cy="372" r="44.64" fill="#d98f2b"/>
+  <g transform="rotate(0.00 372 372)"><rect x="361.13" y="313.10" width="21.74" height="16.26" rx="6.52" fill="#d98f2b"/></g>
+  <g transform="rotate(45.00 372 372)"><rect x="361.13" y="313.10" width="21.74" height="16.26" rx="6.52" fill="#d98f2b"/></g>
+  <g transform="rotate(90.00 372 372)"><rect x="361.13" y="313.10" width="21.74" height="16.26" rx="6.52" fill="#d98f2b"/></g>
+  <g transform="rotate(135.00 372 372)"><rect x="361.13" y="313.10" width="21.74" height="16.26" rx="6.52" fill="#d98f2b"/></g>
+  <g transform="rotate(180.00 372 372)"><rect x="361.13" y="313.10" width="21.74" height="16.26" rx="6.52" fill="#d98f2b"/></g>
+  <g transform="rotate(225.00 372 372)"><rect x="361.13" y="313.10" width="21.74" height="16.26" rx="6.52" fill="#d98f2b"/></g>
+  <g transform="rotate(270.00 372 372)"><rect x="361.13" y="313.10" width="21.74" height="16.26" rx="6.52" fill="#d98f2b"/></g>
+  <g transform="rotate(315.00 372 372)"><rect x="361.13" y="313.10" width="21.74" height="16.26" rx="6.52" fill="#d98f2b"/></g>
+  <circle cx="372" cy="372" r="19.84" fill="white"/>
+
+</svg>

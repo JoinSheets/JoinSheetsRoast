@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  
+  <text x="240" y="300" font-family="Consolas, Menlo, monospace" font-weight="700" font-size="150" fill="#2b2b2e" text-anchor="middle">&lt;/&gt;</text>
+  <text x="240" y="380" font-family="Arial, sans-serif" font-weight="700" font-size="60" fill="#86868a" text-anchor="middle" letter-spacing="8">JAVASCRIPT</text>
+  <circle cx="372" cy="120" r="58" fill="white" stroke="#2b2b2e" stroke-width="3"/>
+  <circle cx="372" cy="120" r="41.76" fill="#d98f2b"/>
+  <g transform="rotate(0.00 372 120)"><rect x="361.83" y="64.90" width="20.33" height="15.34" rx="6.10" fill="#d98f2b"/></g>
+  <g transform="rotate(45.00 372 120)"><rect x="361.83" y="64.90" width="20.33" height="15.34" rx="6.10" fill="#d98f2b"/></g>
+  <g transform="rotate(90.00 372 120)"><rect x="361.83" y="64.90" width="20.33" height="15.34" rx="6.10" fill="#d98f2b"/></g>
+  <g transform="rotate(135.00 372 120)"><rect x="361.83" y="64.90" width="20.33" height="15.34" rx="6.10" fill="#d98f2b"/></g>
+  <g transform="rotate(180.00 372 120)"><rect x="361.83" y="64.90" width="20.33" height="15.34" rx="6.10" fill="#d98f2b"/></g>
+  <g transform="rotate(225.00 372 120)"><rect x="361.83" y="64.90" width="20.33" height="15.34" rx="6.10" fill="#d98f2b"/></g>
+  <g transform="rotate(270.00 372 120)"><rect x="361.83" y="64.90" width="20.33" height="15.34" rx="6.10" fill="#d98f2b"/></g>
+  <g transform="rotate(315.00 372 120)"><rect x="361.83" y="64.90" width="20.33" height="15.34" rx="6.10" fill="#d98f2b"/></g>
+  <circle cx="372" cy="120" r="18.56" fill="white"/>
+
+</svg>
