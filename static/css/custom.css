@@ -13,7 +13,9 @@
    header height. */
 .nav_brand img, .nav_brand picture {
   max-width: 4.5rem;
+  width: 4.5rem;
   height: auto;
+  flex-shrink: 0;
 }
 
 /* The one real difference from the main site's nav: a text wordmark next
@@ -27,6 +29,12 @@
   align-items: center;
   gap: .6rem;
 }
+/* The logo's own rule above needs an explicit `width` (not just
+   `max-width`) and `flex-shrink: 0` now that .nav_brand is a flex
+   container: our logo.svg carries only a viewBox, no width/height
+   attributes, so as a flex item with no explicit width it has no
+   reliable intrinsic size to shrink-to-fit from -- without these, some
+   browsers collapsed it to 0x0 and the logo visually vanished. */
 .nav_brand_title {
   font-weight: 700;
   font-size: 1.05rem;

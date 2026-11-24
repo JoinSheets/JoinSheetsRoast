@@ -8,7 +8,10 @@
   "/demo/" here), and the brand carries a text wordmark next to the logo --
   the main site's logo-only brand works there because its homepage already
   establishes identity with its own button grid; this site's homepage
-  doesn't, so an unlabeled logo read as empty.
+  doesn't, so an unlabeled logo read as empty. The wordmark is the literal
+  string "JoinSheets" (not site.Title, which is "JoinSheets Roast") --
+  the project owner wants just the org name here, matching the main site's
+  own wordmark exactly, not the full course title.
 */}}
 {{- $config := site.Params }}
 <nav class="wrap nav menu">
@@ -19,7 +22,7 @@
 		<picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
 			<img src="{{ $litPath }}" alt="{{ site.Title }} Logo">
 		</picture>
-		<span class="nav_brand_title">{{ site.Title }}</span>
+		<span class="nav_brand_title">JoinSheets</span>
 		<div class="nav_toggle toggle" title='{{ T "site_menu" }}'>
 			{{- partial "sprite" (dict "icon" "harmburger") }}
 		</div>
