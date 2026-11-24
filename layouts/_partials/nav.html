@@ -1,0 +1,63 @@
+{{- /*
+  Site override of Compose's own layouts/_partials/nav.html -- copied from
+  JoinSheets.github.io's own override (same theme, same mechanism: Hugo
+  resolves a site-level partial of this name before the theme's) so the two
+  sites feel like the same family: same logo size, same nav height, same
+  language switcher. Two differences from that version, both deliberate:
+  the brand link goes to this site's own homepage (there's no separate
+  "/demo/" here), and the brand carries a text wordmark next to the logo --
+  the main site's logo-only brand works there because its homepage already
+  establishes identity with its own button grid; this site's homepage
+  doesn't, so an unlabeled logo read as empty.
+*/}}
+{{- $config := site.Params }}
+<nav class="wrap nav menu">
+	<a href='{{ absLangURL "" }}' class="nav_brand">
+		{{- $logos := $config.logo }}
+		{{- $litPath := absURL ($logos.lightMode) }}
+		{{- $darkPath := absURL ($logos.darkMode) }}
+		<picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
+			<img src="{{ $litPath }}" alt="{{ site.Title }} Logo">
+		</picture>
+		<span class="nav_brand_title">{{ site.Title }}</span>
+		<div class="nav_toggle toggle" title='{{ T "site_menu" }}'>
+			{{- partial "sprite" (dict "icon" "harmburger") }}
+		</div>
+	</a>
+	<ul class="nav_body">
+		<li class="nav-item">
+			{{- partial "search" . }}
+		</li>
+		{{- $p := . }}
+		{{- range site.Menus.main }}
+		<li class="nav-item">
+			{{- $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
+			{{- with .Page }}
+			{{- $active = or $active ( $.IsDescendant .)  }}
+			{{- end }}
+			{{- $url := absLangURL .URL }}
+			{{- if or (hasPrefix .URL "http") (hasPrefix .URL "www.") }}
+				{{- $url = .URL }}
+			{{- end }}
+			<a class="nav-link{{if $active }} active{{end}}" href="{{ $url }}"><span{{if $active }} class="active"{{end}}>{{ T .Identifier | default .Name }}</span></a>
+		</li>
+		{{- end }}
+		{{- with $config.source }}
+		<li class="nav-item nav_repo">
+			<a class="nav-link" href="{{ .url }}" target="_blank">
+				{{- if .iconLight }}
+					{{- $litPath := absURL .iconLight }}
+					{{- $darkPath := absURL .iconDark }}
+					<picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
+						<img src="{{ $litPath }}" alt="{{ .name }} Repo">
+					</picture>
+				{{- else }}{{ .name }}{{ end }}
+			</a>
+		</li>
+		{{- end }}
+		{{- if hugo.IsMultilingual }}
+		<li class="nav-item nav_lang">{{ range .AllTranslations }}<a class="nav-link{{ if eq .Language.Lang $.Language.Lang }} active{{ end }}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>{{ end }}</li>
+		{{- end }}
+		<li class="nav-item">{{ partial "mode" . }}</li>
+	</ul>
+</nav>

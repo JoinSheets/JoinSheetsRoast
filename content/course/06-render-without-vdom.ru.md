@@ -1,5 +1,5 @@
 +++
-title = "Глава 6 — Рендер без Virtual DOM"
+title = "Рендер без Virtual DOM"
 weight = 6
 +++
 

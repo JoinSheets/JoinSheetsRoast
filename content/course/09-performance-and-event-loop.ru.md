@@ -1,5 +1,5 @@
 +++
-title = "Глава 9 — Производительность и event loop"
+title = "Производительность и event loop"
 weight = 9
 +++
 

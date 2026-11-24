@@ -1,3 +1,7 @@
 [ru]
   languageName = "Русский"
   weight = 1
+
+[en]
+  languageName = "English"
+  weight = 2

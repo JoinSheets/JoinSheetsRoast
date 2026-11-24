@@ -1,0 +1,57 @@
+/* Site override, loaded via site.Params.customCSS (see params.toml) --
+   mirrors JoinSheets.github.io's own static/css/custom.css (same theme,
+   same mechanism), so the logo size and nav height feel identical across
+   both sites. */
+
+/* Logo (layouts/_partials/nav.html). The theme's own rule is just
+   ".nav_brand img{max-width:10rem}" -- no height constraint, so with our
+   1:1 SVG and no intrinsic size of its own, it rendered close to 160x160px.
+   .nav_header is position:absolute, and .main's fixed padding-top:6rem
+   assumes a compact header -- an oversized logo pushed the header taller
+   than that, covering the top of the page content. Give it an explicit,
+   compact size instead -- same value as the main site, for a matching
+   header height. */
+.nav_brand img, .nav_brand picture {
+  max-width: 4.5rem;
+  height: auto;
+}
+
+/* The one real difference from the main site's nav: a text wordmark next
+   to the logo. The main site's own homepage already establishes identity
+   through its own button grid, so a bare logo reads fine there; this
+   site's homepage doesn't have that, so the unlabeled logo looked empty.
+   .nav_brand has no flex of its own in the theme (just position:relative),
+   so lay it out explicitly to sit the logo and the title side by side. */
+.nav_brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.nav_brand_title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* Language switcher (layouts/_partials/nav.html -- Compose has no built-in
+   one). A couple of short links side by side; the current language is
+   de-emphasized rather than hidden, so it's clear which one is active. */
+.nav_lang {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+.nav_lang a {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+.nav_lang a.active {
+  /* Compose has a generic ".active{color:var(--theme)}" rule (used elsewhere
+     for highlighting) that would otherwise tint just this link in the accent
+     color -- reset it so English/Русский stay the same font and color, only
+     opacity marks which one is current. */
+  color: inherit;
+  opacity: .6;
+  pointer-events: none;
+}

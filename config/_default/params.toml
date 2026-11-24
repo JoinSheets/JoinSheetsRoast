@@ -9,6 +9,16 @@ repo = "https://github.com/JoinSheets/JoinSheetsRoast"
 enableDarkMode = false
 defaultLightingMode = "auto"
 
+# static/css/custom.css -- a plain static file, not run through Hugo's asset
+# pipeline, so its URL never changes between deploys and GitHub Pages'/the
+# browser's cache can keep serving an old copy for a while. Bump the ?v=
+# query by one on every edit to this file (same convention as the main
+# site), so the URL itself changes and caches can't paper over an update.
+customCSS = ["/css/custom.css?v=1"]
+
+[search]
+on = false
+
 [author]
 name = "A1ex Ma"
 url = "https://github.com/A1eksMa"
