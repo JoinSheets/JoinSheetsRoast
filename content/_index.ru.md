@@ -1,5 +1,6 @@
 +++
 title = "Прожарка JS-проекта: увеличение производительности с помощью Rust"
+description = "Продвинутый курс для разработчиков: глубокий разбор кода JoinSheets, внутренности браузера и DevTools, с параллельным треком переписывания кода на Rust/WASM."
 +++
 
 Учебный курс по глубокому разбору кода на JavaScript и изучению внутренностей браузера — на
@@ -73,16 +74,16 @@ version <!!!>
 
 | № | Тема |
 |---|---|
-| [01](01-bootstrap-without-bundler/) | Загрузка приложения без сборщика: `<script>`-теги, глобальный неймспейс, ES-модули |
-| [02](02-dom-by-hand/) | DOM своими руками: `util.js::el()` — узлы, атрибуты vs свойства, обработчики |
-| [03](03-state-and-reducer/) | Состояние и редьюсер: `store.js` — действия, чистые функции, `subscribe` |
-| [04](04-testing-principles/) | Тестирование в JS, часть 1: принципы, `node:test`, что тестировать в `store.js` |
-| [05](05-smoke-tests-fake-dom/) | Тестирование в JS, часть 2: смоук-тесты и паттерн fake-DOM |
-| [06](06-render-without-vdom/) | Рендер без Virtual DOM: `main.js::render()` — полная перестройка поддерева |
-| [07](07-closures-and-singletons/) | Замыкания и модульные синглтоны: `view-table.js` (`currentState`/`currentDispatch`) |
-| [08](08-event-delegation/) | Делегирование событий и работа с DOM-событиями |
-| [09](09-performance-and-event-loop/) | Производительность и event loop: батчинг рендера строк, Performance-профиль |
-| [10](10-capstone-rust-wasm/) | Капстоун: `formula.js` → Rust + `wasm-bindgen` → WASM, замер прироста |
+| [01](course/01-bootstrap-without-bundler/) | Загрузка приложения без сборщика: `<script>`-теги, глобальный неймспейс, ES-модули |
+| [02](course/02-dom-by-hand/) | DOM своими руками: `util.js::el()` — узлы, атрибуты vs свойства, обработчики |
+| [03](course/03-state-and-reducer/) | Состояние и редьюсер: `store.js` — действия, чистые функции, `subscribe` |
+| [04](course/04-testing-principles/) | Тестирование в JS, часть 1: принципы, `node:test`, что тестировать в `store.js` |
+| [05](course/05-smoke-tests-fake-dom/) | Тестирование в JS, часть 2: смоук-тесты и паттерн fake-DOM |
+| [06](course/06-render-without-vdom/) | Рендер без Virtual DOM: `main.js::render()` — полная перестройка поддерева |
+| [07](course/07-closures-and-singletons/) | Замыкания и модульные синглтоны: `view-table.js` (`currentState`/`currentDispatch`) |
+| [08](course/08-event-delegation/) | Делегирование событий и работа с DOM-событиями |
+| [09](course/09-performance-and-event-loop/) | Производительность и event loop: батчинг рендера строк, Performance-профиль |
+| [10](course/10-capstone-rust-wasm/) | Капстоун: `formula.js` → Rust + `wasm-bindgen` → WASM, замер прироста |
 
 
 ## Режим обучения

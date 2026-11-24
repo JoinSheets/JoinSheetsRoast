@@ -1,0 +1,18 @@
+# Single doc tree under content/course/ -- the ten chapters, in sidebar nav
+# order (front matter `weight` on each).
+docSections = ["course"]
+
+# The course's own repo -- separate from the JoinSheets product repo itself
+# (linked from inside the course content/README, not from the nav).
+repo = "https://github.com/JoinSheets/JoinSheetsRoast"
+
+enableDarkMode = false
+defaultLightingMode = "auto"
+
+[author]
+name = "A1ex Ma"
+url = "https://github.com/A1eksMa"
+
+[logo]
+lightMode = "/images/logo.svg"
+darkMode = "/images/logo.svg"

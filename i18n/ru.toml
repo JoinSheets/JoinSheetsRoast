@@ -1,0 +1,36 @@
+# Russian strings for the Compose theme's own chrome -- the theme ships
+# i18n for de/en/eo/es/tr but not ru, and this site is Russian-only (no
+# other configured language for Hugo to fall back to), so without this file
+# these keys would render as their raw key names instead of text.
+[copy]
+  other = "Копировать"
+[copied]
+  other = "Скопировано"
+[docs_menu]
+  other = "Меню документации"
+[no_matches]
+  other = "Совпадений не найдено"
+[not_set]
+  other = "не задано"
+[resize_snippet]
+  other = "Изменить высоту блока кода"
+[quick_links]
+  other = "Быстрые ссылки"
+[search_field_placeholder]
+  other = "Поиск"
+[search_results_label]
+  other = "Результаты поиска"
+[short_search_query]
+  other = "Запрос слишком короткий"
+[site]
+  other = "сайт"
+[site_menu]
+  other = "Меню сайта"
+[toggle_line_numbers]
+  other = "Показать/скрыть номера строк"
+[toggle_line_wrap]
+  other = "Перенос строк"
+[to_top]
+  other = "Наверх"
+[type_to_search]
+  other = "Введите запрос"

@@ -1,0 +1,10 @@
+[goldmark]
+  [goldmark.renderer]
+    unsafe = true
+
+[highlight]
+  style = "monokai"
+
+[tableOfContents]
+  startLevel = 2
+  endLevel = 2

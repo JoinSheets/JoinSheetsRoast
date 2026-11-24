@@ -8,8 +8,13 @@
 **Доступен только на русском
 языке :((**
 
-Подключён как git submodule к разделу «Учебный курс: Прожарка JS-проекта с помощью Rust» на официальной странице сайта организации
-[JoinsSheets](https://joinsheets.github.io/).
+Собирается и публикуется как отдельный самостоятельный сайт на Hugo + Compose
+(GitHub Actions, запуск только вручную), отдельно от основного сайта
+[joinsheets.github.io](https://joinsheets.github.io/) и его визуального
+стиля — живёт на
+[joinsheets.github.io/JoinSheetsRoast/](https://joinsheets.github.io/JoinSheetsRoast/).
+Ссылка на курс — со страницы [«Как внести вклад»](https://joinsheets.github.io/ru/docs/developers/contributing/)
+основного сайта, не из его боковой навигации.
 
 ## Лицензия
 
