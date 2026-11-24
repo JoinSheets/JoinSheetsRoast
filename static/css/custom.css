@@ -37,9 +37,20 @@
    browsers collapsed it to 0x0 and the logo visually vanished. */
 .nav_brand_title {
   font-weight: 700;
-  font-size: 1.05rem;
+  /* Matches the JoinSheets app's own nav brand text exactly
+     (.nav strong in the app's styles.css) -- the project owner wants the
+     two to read as the same size, not just the same font-weight. */
+  font-size: 1.5rem;
   color: var(--text);
   white-space: nowrap;
+}
+
+/* Footer source-code link (layouts/_partials/footer.html) -- outside
+   .content, so it misses the theme's own ".content a:not(.button)
+   {color:var(--theme)}" rule (what makes the homepage's links accent-
+   colored); set it to match explicitly. */
+.footer_source {
+  color: var(--theme);
 }
 
 /* Language switcher (layouts/_partials/nav.html -- Compose has no built-in
