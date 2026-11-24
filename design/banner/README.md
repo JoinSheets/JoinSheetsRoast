@@ -28,11 +28,7 @@ or top-right (03) or bottom-center (04).
 
 ## Current pick
 
-Not chosen yet -- shown to the project owner for a pick (same review flow
-as `JoinSheets.github.io`'s own `design/logos/`).
-
-Intended placement once picked: the course homepage
-(`content/_index.ru.md`/`_index.en.md`), in a two-column
-`{{< block "grid-2" >}}` layout (same shortcode the Compose theme's own
-example homepage uses) -- image in the left column, the course annotation
-and a "Начать"/"Get started" button in the right column.
+`banner-04-bigsquares-js.svg` -- picked. Wired up as
+`static/images/homepage-banner.svg`, used on the course homepage
+(`content/_index.ru.md`/`_index.en.md`) in a two-column
+`{{< block "grid-2" >}}` layout (image left, annotation + button right).
