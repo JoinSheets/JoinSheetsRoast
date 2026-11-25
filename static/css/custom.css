@@ -48,9 +48,11 @@
 /* Footer source-code link (layouts/_partials/footer.html) -- outside
    .content, so it misses the theme's own ".content a:not(.button)
    {color:var(--theme)}" rule (what makes the homepage's links accent-
-   colored); set it to match explicitly. */
+   colored); set it explicitly. --theme is the theme's bright green --
+   --inline-color (darkgoldenrod, otherwise only used for inline <code>
+   text) is its one other named/reusable color, a calmer olive-gold. */
 .footer_source {
-  color: var(--theme);
+  color: var(--inline-color);
 }
 
 /* Language switcher (layouts/_partials/nav.html -- Compose has no built-in
