@@ -80,5 +80,10 @@ scheme in every variant.
    accent colors already in the composition.
 
 Caveat: #6's gray ring is faint against a plain white page background (same
-issue as the earlier gray-accent round-2 variant). No pick made yet --
-waiting on review.
+issue as the earlier gray-accent round-2 variant).
+
+## Pick: badge
+
+`badge-03-flat-peach-gold-ring.svg` picked (flat peach fill, gold ring) --
+wired up as `../../static/images/homepage-banner.svg`, the live course
+homepage banner.
