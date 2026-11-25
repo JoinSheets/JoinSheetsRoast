@@ -96,3 +96,24 @@
   width: fit-content;
   margin-left: auto;
 }
+
+/* Homepage hero title (content/_index.ru.md/_index.en.md). The theme's
+   h1 rule is "color: inherit" -- plain body text (--text), which is dark
+   in light mode but near-white in dark mode (defaultLightingMode = "auto"
+   switches on prefers-color-scheme regardless of enableDarkMode). Give it
+   its own color instead of just inheriting body text, same --inline-color
+   olive-gold used for the footer link above. ".page-home" is the theme's
+   own body class for the homepage (see the theme's own
+   ".page-home h1{font-weight:300}" rule), so this only touches the
+   homepage title, not chapter headings elsewhere.
+   Every heading also gets a hover "copy anchor link" icon
+   (render-heading.html's ".link"); that only makes sense where there's
+   something to deep-link to -- pointless on a one-off homepage title, so
+   drop it here specifically rather than disabling it site-wide (it's
+   useful for linking to specific chapter sections). */
+.page-home h1 {
+  color: var(--inline-color);
+}
+.page-home h1 .link {
+  display: none;
+}
