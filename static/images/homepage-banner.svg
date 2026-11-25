@@ -14,7 +14,7 @@
   <text x="165" y="255" font-family="Arial, sans-serif" font-weight="800" font-size="120" fill="#ffffff" text-anchor="middle">J</text>
   <text x="315" y="255" font-family="Arial, sans-serif" font-weight="800" font-size="120" fill="#ffffff" text-anchor="middle">S</text>
 
-  <circle cx="240" cy="380" r="95" fill="#fbe9d4" stroke="#e4a23f" stroke-width="4"/>
+  <circle cx="240" cy="380" r="95" fill="#ffffff" stroke="#e4a23f" stroke-width="4"/>
 
   <!-- crab -->
   <line x1="208" y1="402" x2="178" y2="410" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>

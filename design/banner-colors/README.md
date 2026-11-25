@@ -84,6 +84,8 @@ issue as the earlier gray-accent round-2 variant).
 
 ## Pick: badge
 
-`badge-03-flat-peach-gold-ring.svg` picked (flat peach fill, gold ring) --
-wired up as `../../static/images/homepage-banner.svg`, the live course
-homepage banner.
+`badge-03-flat-peach-gold-ring.svg` picked (flat peach fill, gold ring),
+then adjusted one step further: `badge-03b-flat-white-gold-ring.svg` keeps
+the same gold ring but swaps the peach fill for flat white. This final
+version is wired up as `../../static/images/homepage-banner.svg`, the live
+course homepage banner.
