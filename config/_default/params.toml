@@ -2,9 +2,12 @@
 # order (front matter `weight` on each).
 docSections = ["course"]
 
-# The course's own repo -- separate from the JoinSheets product repo itself
-# (linked from inside the course content/README, not from the nav).
-repo = "https://github.com/JoinSheets/JoinSheetsRoast"
+# Footer "Исходный код" link -- deliberately the main JoinSheets product
+# repo, not this course's own (JoinSheetsRoast), so the course's footer
+# matches JoinSheets.github.io's footer exactly and ties back to the core
+# project (the course's own repo is still reachable from there, just not
+# one click away).
+repo = "https://github.com/JoinSheets/JoinSheets"
 
 enableDarkMode = false
 defaultLightingMode = "auto"

@@ -3,19 +3,25 @@
   JoinSheets.github.io's own override (same theme, same mechanism: Hugo
   resolves a site-level partial of this name before the theme's) so the two
   sites feel like the same family: same logo size, same nav height, same
-  language switcher. Two differences from that version, both deliberate:
-  the brand link goes to this site's own homepage (there's no separate
-  "/demo/" here), and the brand carries a text wordmark next to the logo --
-  the main site's logo-only brand works there because its homepage already
-  establishes identity with its own button grid; this site's homepage
-  doesn't, so an unlabeled logo read as empty. The wordmark is the literal
-  string "JoinSheets" (not site.Title, which is "JoinSheets Roast") --
-  the project owner wants just the org name here, matching the main site's
-  own wordmark exactly, not the full course title.
+  language switcher, and -- deliberately -- the same brand-link behavior:
+  the logo goes to the demo, not to this site's own homepage (the homepage
+  banner is a landing page for a first visit; once you're navigating via
+  the sidebar there's no more banner to return to, and the demo link also
+  ties the course back to the live project, same as the docs site). Unlike
+  the docs site, "demo/" isn't part of *this* site's own baseURL (it's
+  under JoinSheets.github.io directly, not .../JoinSheetsRoast/), so this
+  is a hardcoded absolute URL rather than `absURL "demo/"`.
+  One remaining difference from the docs site: the brand carries a text
+  wordmark next to the logo -- the main site's logo-only brand works there
+  because its homepage already establishes identity with its own button
+  grid; this site's homepage doesn't, so an unlabeled logo read as empty.
+  The wordmark is the literal string "JoinSheets" (not site.Title, which is
+  "JoinSheets Roast") -- the project owner wants just the org name here,
+  matching the main site's own wordmark exactly, not the full course title.
 */}}
 {{- $config := site.Params }}
 <nav class="wrap nav menu">
-	<a href='{{ absLangURL "" }}' class="nav_brand">
+	<a href="https://joinsheets.github.io/demo/" class="nav_brand">
 		{{- $logos := $config.logo }}
 		{{- $litPath := absURL ($logos.lightMode) }}
 		{{- $darkPath := absURL ($logos.darkMode) }}

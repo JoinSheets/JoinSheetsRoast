@@ -2,8 +2,10 @@
   Site override of Compose's own layouts/_partials/footer.html -- copied
   from JoinSheets.github.io's own override (same theme, same mechanism)
   so the footer matches that site's exactly: a "Source code" link plus
-  copyright, instead of the theme's bare copyright line. Points at this
-  course's own repo (site.Params.repo), not the JoinSheets app's.
+  copyright, instead of the theme's bare copyright line. Points at the
+  main JoinSheets product repo (site.Params.repo), not this course's own --
+  deliberate, so this footer is identical to JoinSheets.github.io's and
+  the course ties back to the core project from the same familiar spot.
 */}}
 {{- $config := site.Params }}
 {{- $author := $config.author }}
@@ -11,9 +13,9 @@
   <div class="wrap">
     <p>
       {{- if eq site.Language.Lang "ru" }}
-        Исходный код: <a class="footer_source" href="{{ $config.repo }}" target="_blank" rel="noopener">github.com/JoinSheets/JoinSheetsRoast</a>
+        Исходный код: <a class="footer_source" href="{{ $config.repo }}" target="_blank" rel="noopener">github.com/JoinSheets/JoinSheets</a>
       {{- else }}
-        Source code: <a class="footer_source" href="{{ $config.repo }}" target="_blank" rel="noopener">github.com/JoinSheets/JoinSheetsRoast</a>
+        Source code: <a class="footer_source" href="{{ $config.repo }}" target="_blank" rel="noopener">github.com/JoinSheets/JoinSheets</a>
       {{- end }}
       &nbsp;
       &copy; <span class="year">{{ now.Year }}</span>
