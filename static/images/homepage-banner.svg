@@ -1,20 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
-  
-  <rect x="60" y="120" width="210" height="210" rx="38" fill="#2b2b2e"/>
-  <rect x="210" y="120" width="210" height="210" rx="38" fill="#86868a"/>
+  <defs>
+    <linearGradient id="gradJ" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a3a3f"/>
+      <stop offset="1" stop-color="#1c1b1e"/>
+    </linearGradient>
+    <linearGradient id="gradS" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e4a23f"/>
+      <stop offset="1" stop-color="#bf7918"/>
+    </linearGradient>
+    <radialGradient id="gradBadgeBg" cx="0.5" cy="0.42" r="0.65">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fbe9d4"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="60" y="120" width="210" height="210" rx="38" fill="url(#gradJ)"/>
+  <rect x="210" y="120" width="210" height="210" rx="38" fill="url(#gradS)"/>
   <text x="165" y="255" font-family="Arial, sans-serif" font-weight="800" font-size="120" fill="white" text-anchor="middle">J</text>
   <text x="315" y="255" font-family="Arial, sans-serif" font-weight="800" font-size="120" fill="white" text-anchor="middle">S</text>
-  <circle cx="240" cy="380" r="95" fill="white" stroke="#2b2b2e" stroke-width="3"/>
-  <circle cx="240" cy="380" r="68" fill="#d98f2b"/>
-  <g transform="rotate(0.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <g transform="rotate(40.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <g transform="rotate(80.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <g transform="rotate(120.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <g transform="rotate(160.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <g transform="rotate(200.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <g transform="rotate(240.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <g transform="rotate(280.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <g transform="rotate(320.00 240 380)"><rect x="225.28" y="290.00" width="29.43" height="24.00" rx="8.83" fill="#d98f2b"/></g>
-  <circle cx="240" cy="380" r="30" fill="white"/>
 
+  <circle cx="240" cy="380" r="95" fill="white" stroke="#2b2b2e" stroke-width="3"/>
+  <circle cx="240" cy="380" r="78" fill="url(#gradBadgeBg)"/>
+
+  <!-- crab -->
+  <line x1="208" y1="402" x2="178" y2="410" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+  <line x1="208" y1="402" x2="172" y2="425" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+  <line x1="208" y1="402" x2="180" y2="438" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+  <line x1="272" y1="402" x2="302" y2="410" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+  <line x1="272" y1="402" x2="308" y2="425" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+  <line x1="272" y1="402" x2="300" y2="438" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+
+  <line x1="200" y1="382" x2="173" y2="382" stroke="#c62828" stroke-width="10" stroke-linecap="round"/>
+  <line x1="280" y1="382" x2="307" y2="382" stroke="#c62828" stroke-width="10" stroke-linecap="round"/>
+  <ellipse cx="170" cy="372" rx="15" ry="9" fill="#c62828"/>
+  <ellipse cx="170" cy="392" rx="15" ry="9" fill="#c62828"/>
+  <ellipse cx="310" cy="372" rx="15" ry="9" fill="#c62828"/>
+  <ellipse cx="310" cy="392" rx="15" ry="9" fill="#c62828"/>
+
+  <ellipse cx="240" cy="385" rx="42" ry="28" fill="#c62828"/>
+  <ellipse cx="240" cy="377" rx="32" ry="16" fill="#e4573f" opacity="0.85"/>
+
+  <line x1="225" y1="360" x2="213" y2="338" stroke="#c62828" stroke-width="7" stroke-linecap="round"/>
+  <line x1="255" y1="360" x2="267" y2="338" stroke="#c62828" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="213" cy="332" r="9" fill="white"/>
+  <circle cx="267" cy="332" r="9" fill="white"/>
+  <circle cx="213" cy="332" r="4" fill="#2b2b2e"/>
+  <circle cx="267" cy="332" r="4" fill="#2b2b2e"/>
 </svg>
