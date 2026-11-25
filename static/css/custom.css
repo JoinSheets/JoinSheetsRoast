@@ -103,9 +103,14 @@
    switches on prefers-color-scheme regardless of enableDarkMode). Give it
    its own color instead of just inheriting body text, same --inline-color
    olive-gold used for the footer link above. ".page-home" is the theme's
-   own body class for the homepage (see the theme's own
-   ".page-home h1{font-weight:300}" rule), so this only touches the
-   homepage title, not chapter headings elsewhere.
+   own body class for the homepage.
+   The theme also has ".page-home h1{font-weight:300}" (thin, unlike every
+   other heading's font-weight:500) -- with the font's Cyrillic coverage
+   apparently falling back to a bolder substitute at that weight while the
+   Latin words stay in the real (thin) font, the two scripts in the same
+   title visibly mismatched. Reset to the regular heading weight so it
+   matches the rest of the site's heading style -- this was only ever
+   meant to be a color change.
    Every heading also gets a hover "copy anchor link" icon
    (render-heading.html's ".link"); that only makes sense where there's
    something to deep-link to -- pointless on a one-off homepage title, so
@@ -113,6 +118,7 @@
    useful for linking to specific chapter sections). */
 .page-home h1 {
   color: var(--inline-color);
+  font-weight: 500;
 }
 .page-home h1 .link {
   display: none;
