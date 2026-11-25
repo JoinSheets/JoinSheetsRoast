@@ -5,7 +5,7 @@ description = "Продвинутый курс для разработчиков
 
 {{< block "grid-2" >}}
 {{< column >}}
-![JavaScript, разбор концепций языка и бонус-трек на Rust](images/homepage-banner.svg)
+![JavaScript, разбор концепций языка и бонус-трек на Rust](../images/homepage-banner.svg)
 {{< /column >}}
 
 {{< column >}}
