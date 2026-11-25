@@ -2,7 +2,7 @@ baseURL = "https://joinsheets.github.io/JoinSheetsRoast/"
 title = "JoinSheets Roast"
 theme = "compose"
 enableRobotsTXT = true
-defaultContentLanguage = "ru"
+defaultContentLanguage = "en"
 
 [pagination]
 pagerSize = 10
