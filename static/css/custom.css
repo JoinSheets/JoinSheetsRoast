@@ -77,17 +77,20 @@
 
 /* Homepage hero "Начать" button (content/_index.ru.md). The theme's default
    ".button" is a solid --theme (green) block, left-aligned by default since
-   it's just inline-block text in the column. White instead of green needs a
-   border here -- the page background is plain white (--bg: var(--light):
-   #fff), so a borderless white button would be invisible against it. */
+   it's just inline-block text in the column. The theme already has a
+   built-in "light" button look -- ".button + .button" (two buttons back to
+   back) switches the second one to --haze/--dark -- reuse those same
+   tokens here instead of hardcoding new colors, just via an explicit class
+   since there's no second button to trigger the sibling rule. --haze is
+   near-white but not quite (page bg is plain white), so it still needs a
+   thin border to read as a button at all -- the theme's own
+   --border-color covers that. Right alignment has no theme utility to
+   reuse, hence margin-left: auto. */
 .button_hero {
-  background-color: #fff;
-  color: #2b2b2e;
-  border: 2px solid #2b2b2e;
+  background-color: var(--haze);
+  color: var(--dark);
+  border: 1px solid var(--border-color);
   display: block;
   width: fit-content;
   margin-left: auto;
-}
-.button_hero:hover {
-  opacity: .7;
 }

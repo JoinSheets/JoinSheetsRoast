@@ -24,7 +24,7 @@ defaultLightingMode = "auto"
 # its own (structurally identical) custom.css at that exact path -- silently
 # loading the WRONG site's stylesheet instead of failing loudly. Confirmed
 # this was happening before this fix.
-customCSS = ["https://joinsheets.github.io/JoinSheetsRoast/css/custom.css?v=4"]
+customCSS = ["https://joinsheets.github.io/JoinSheetsRoast/css/custom.css?v=5"]
 
 [search]
 on = false
