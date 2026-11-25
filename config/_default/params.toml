@@ -14,7 +14,17 @@ defaultLightingMode = "auto"
 # browser's cache can keep serving an old copy for a while. Bump the ?v=
 # query by one on every edit to this file (same convention as the main
 # site), so the URL itself changes and caches can't paper over an update.
-customCSS = ["/css/custom.css?v=2"]
+#
+# Full absolute URL (not a root-relative "/css/...") on purpose: the
+# theme's head partial outputs this value completely raw, with no absURL
+# wrapping -- a leading "/" would be resolved by the browser against the
+# server root (joinsheets.github.io/css/...), missing this site's own
+# /JoinSheetsRoast/ baseURL subpath entirely. It would then coincidentally
+# 200 anyway, because the main JoinSheets.github.io site happens to serve
+# its own (structurally identical) custom.css at that exact path -- silently
+# loading the WRONG site's stylesheet instead of failing loudly. Confirmed
+# this was happening before this fix.
+customCSS = ["https://joinsheets.github.io/JoinSheetsRoast/css/custom.css?v=3"]
 
 [search]
 on = false
@@ -24,5 +34,12 @@ name = "A1ex Ma"
 url = "https://github.com/A1eksMa"
 
 [logo]
-lightMode = "/images/logo.svg"
-darkMode = "/images/logo.svg"
+# No leading slash: these go through nav.html's `absURL`, which only
+# prepends baseURL's own /JoinSheetsRoast/ subpath for inputs that don't
+# already look server-root-absolute. A leading "/" here produced
+# https://joinsheets.github.io/images/logo.svg (missing the subpath) --
+# wrong, but it coincidentally 200'd anyway since the main site happens to
+# serve an identical logo.svg at that exact (wrong) path. Same issue and
+# same fix as customCSS above.
+lightMode = "images/logo.svg"
+darkMode = "images/logo.svg"

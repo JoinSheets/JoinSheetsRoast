@@ -5,7 +5,7 @@ description = "An advanced developer course: a deep dive into the JoinSheets cod
 
 {{< block "grid-2" >}}
 {{< column >}}
-![JavaScript, language concepts, and a Rust bonus track](/images/homepage-banner.svg)
+![JavaScript, language concepts, and a Rust bonus track](../images/homepage-banner.svg)
 {{< /column >}}
 
 {{< column >}}
