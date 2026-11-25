@@ -74,3 +74,20 @@
   opacity: .6;
   pointer-events: none;
 }
+
+/* Homepage hero "Начать" button (content/_index.ru.md). The theme's default
+   ".button" is a solid --theme (green) block, left-aligned by default since
+   it's just inline-block text in the column. White instead of green needs a
+   border here -- the page background is plain white (--bg: var(--light):
+   #fff), so a borderless white button would be invisible against it. */
+.button_hero {
+  background-color: #fff;
+  color: #2b2b2e;
+  border: 2px solid #2b2b2e;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+}
+.button_hero:hover {
+  opacity: .7;
+}
