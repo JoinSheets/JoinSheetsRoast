@@ -3,7 +3,7 @@ title = "The DOM by Hand"
 weight = 2
 +++
 
-Code: all of `util.js` (84 lines). Main object of study: `el()` (lines 50-69)
+Code: all of `util.js` (84 lines). The main objects of study are `el()` (lines 50-69)
 and `clear()` (71).
 
 ## Theory
@@ -23,7 +23,7 @@ cell.appendChild(document.createTextNode('∅'));
 row.appendChild(cell);
 ```
 
-This code works, and nothing about it is hidden — this is exactly how the DOM is built "from below." But it has a downside that becomes critical as the tree grows deeper: the structure of the result (a `row` node, with `cell` inside it, and text inside `cell`) is nowhere visible as a whole — it's smeared across a sequence of imperative assignments, and to reconstruct it in your head you have to mentally replay every line in order. Nesting in markup (`<tr><td>∅</td></tr>`) and nesting in the code that builds that markup are two different things, and with every extra level of depth, the gap between them gets more painful.
+This code works, and nothing about it is hidden — this is exactly how the DOM is built "from below." But it has a downside that becomes critical as the tree grows deeper: the structure of the result (a `row` node, with `cell` inside it, and text inside `cell`) is nowhere visible as a whole — it's spread thin across a sequence of imperative assignments, and to reconstruct it in your head you have to mentally replay every line in order. Nesting in markup (`<tr><td>∅</td></tr>`) and nesting in the code that builds that markup are two different things, and with every extra level of depth the mismatch between them grows more painful.
 
 ### The hyperscript pattern: a tree as a single function call
 
@@ -50,21 +50,21 @@ The differences in detail (whether the class is part of a selector string, or a 
 el('td', { class: 'del', title: 'deleted (DELETE)' }, '∅')
 ```
 
-This line builds exactly the same fragment as the imperative code five lines above — but the nesting of `el()` calls now matches the structure of the result literally, one to one, which was the whole point of the pattern. Reaching for a hand-rolled implementation instead of one of the ready-made libraries above is a direct consequence of the chapter-1 constraint: with no build step there's nowhere to compile JSX, and the ready-made libraries, though available as plain `<script>` includes, would add an external dependency the project categorically doesn't accept.
+This line builds exactly the same fragment as the imperative code five lines above — but the nesting of `el()` calls now matches the structure of the result literally, one to one, which was the whole point of the pattern. Reaching for a hand-rolled implementation instead of one of the ready-made libraries above is a direct consequence of the chapter-1 constraint: with no build step there's nowhere to compile JSX, and the ready-made libraries, though available as plain `<script>` includes, would add an external dependency that the project refuses to take on as a matter of principle.
 
 ### Attribute and property: two histories of the same node
 
-A DOM node simultaneously has **attributes** — what's literally written in the source HTML text, available via `getAttribute`/`setAttribute` and always represented as a string — and **properties** of the JS object `node`, such as `node.value` or `node.checked`, which can be of any type. These two things have historically not been the same thing, and the gap between them isn't an oversight but a consequence of how the DOM evolved.
+A DOM node simultaneously has **attributes** — what's literally written in the source HTML text, available via `getAttribute`/`setAttribute` and always represented as a string — and **properties** of the JS object `node`, such as `node.value` or `node.checked`, which can be of any type. Historically, these two have never been the same thing, and the divergence between them isn't an oversight but a consequence of how the DOM evolved.
 
-The DOM Level 1 specification (1998) described HTML as a tree staying as close as possible to the markup text: attributes were stored as name-string pairs, directly mirroring what the page's author wrote. Once pages became interactive, this representation stopped being enough: a user typing into an input field changes state that never existed, and never could have existed, in the original markup. The answer was "IDL attributes" — also known as properties of the node's JS object — a live, typed reflection of the current state, under no obligation to match whatever was once written in the text. For most pairs, the browser syncs one with the other in both directions (the `class` attribute and the `className` property) — but precisely where state is able to change independently of the markup, synchronization becomes one-directional. An input field is the clearest case: `<input value="draft">` sets only the **initial** value (technically this lands on the `defaultValue` property); as soon as the user starts typing, only `.value` changes, and the original attribute stays the same. This divergence isn't accidental, it's deliberate — it's exactly what lets a "Reset" button in an HTML form restore a field to what was originally written in the markup, rather than to whatever the user happened to type: without the split between "original value" and "current value," such a button would simply have nothing to point back to.
+The DOM Level 1 specification (1998) described HTML as a tree that stayed as close as possible to the markup text: attributes were stored as name-string pairs, directly mirroring what the page's author wrote. Once pages became interactive, this representation stopped being enough: a user typing into an input field changes state that never existed, and never could have existed, in the original markup. The answer was "IDL attributes" — also known as properties of the node's JS object — a live, typed reflection of the current state, under no obligation to match whatever was once written in the text. For most pairs, the browser syncs one with the other in both directions (the `class` attribute and the `className` property) — but precisely where state is able to change independently of the markup, the synchronization becomes one-way. An input field is the clearest case: `<input value="draft">` sets only the **initial** value (technically this lands on the `defaultValue` property); as soon as the user starts typing, only `.value` changes, and the original attribute stays the same. This divergence isn't accidental, it's deliberate — it's exactly what lets a "Reset" button in an HTML form restore a field to what was originally written in the markup, rather than to whatever the user happened to type: without the split between "original value" and "current value," such a button would simply have nothing to point back to.
 
 The same logic lies behind HTML's so-called boolean attributes (`disabled`, `checked`, `selected`, `readonly`): what matters for them is the mere presence of the attribute in the markup, not its text value — `<button disabled="false">` still sets a disabled button, because the specification reads such attributes as "present or absent," not as a boolean string. `el()` follows this rule directly: the branch `if (v === true) node.setAttribute(k, '')` sets the attribute as an empty string, not the text `"true"` — exactly the representation the browser expects for boolean attributes, and exactly what distinguishes them from any other attribute carrying a value.
 
-`el()` deliberately makes no distinction between "set an initial value when creating the node" and "update an already-existing node": it's only ever called at creation time, through `setAttribute`, and that's enough for all of the project's needs — we'll get to the reason the second case isn't needed at all at the end of this chapter's exercise section, and in more depth in the chapter on rendering without a Virtual DOM.
+`el()` deliberately makes no distinction between "set an initial value when creating the node" and "update an already-existing node": it's only ever called at creation time, through `setAttribute`, and that's enough for all of the project's needs — the reason the second case isn't needed at all we'll take up at the end of this chapter's exercise section, and in more depth in the chapter on rendering without a Virtual DOM.
 
-### Absence of a value as a switch
+### Absence of a value as an off switch
 
-Any markup generator — whatever the specific technology — runs into the same task: how to express "this attribute or this node is present only under a certain condition," without a separate branch of code for every such case. Different systems solve it differently, but the solution almost always boils down to one idea: a special, deliberately "empty" value is treated as an explicit "skip this" signal. In JSX that's `{condition && <Badge />}` — React renders nothing at all if the expression to the left of `&&` is falsy, because `false`/`null`/`undefined` as a component's child are interpreted as "there's nothing here"; Vue has a dedicated `v-if` directive for the same purpose; the `classnames` library, ubiquitous in React code, builds a CSS class string from an object, throwing out any keys whose value is falsy.
+Any markup generator — whatever the specific technology — runs into the same problem: how to express "this attribute or this node is present only under a certain condition," without a separate branch of code for every such case. Different systems solve it differently, but the solution almost always boils down to one idea: a special, deliberately "empty" value is treated as an explicit "skip this" signal. In JSX that's `{condition && <Badge />}` — React renders nothing at all if the expression to the left of `&&` is falsy, because `false`/`null`/`undefined` as a component's child are interpreted as "there's nothing here"; Vue has a dedicated `v-if` directive for the same purpose; the `classnames` library, ubiquitous in React code, builds a CSS class string from an object, throwing out any keys whose value is falsy.
 
 `el()` reproduces this same idea in the most economical way possible — with no dedicated syntax, directive, or library, just a check at the start of both loops inside the same function:
 
@@ -76,7 +76,7 @@ if (v == null || v === false) return;
 if (kid == null || kid === false) return;
 ```
 
-The same trick, repeated verbatim in two different spots of the same function, does away with the need for a separate "if" helper for every conditional attribute or conditional child throughout the rest of the code: `el('button', { disabled: index === 0 ? false : true })` skips the attribute on `false` with no extra branching, and `el('div', {}, cond && el('span', ...))` safely "doesn't render" the `<span>` when `cond` is falsy — because `false && x` evaluates to `false` in JavaScript, exactly the value the children loop already knows how to skip. This second form — conditionally rendering a child via `&&` — is used throughout the project in exactly the form familiar from JSX code: the syntax is different (plain JS, not markup), but the problem being solved and the trick chosen to solve it are the very same.
+The same trick, repeated verbatim in two different places in the same function, does away with the need for a separate "if" helper for every conditional attribute or conditional child throughout the rest of the code: `el('button', { disabled: index === 0 ? false : true })` skips the attribute on `false` with no extra branching, and `el('div', {}, cond && el('span', ...))` safely "doesn't render" the `<span>` when `cond` is falsy — because `false && x` evaluates to `false` in JavaScript, exactly the value the children loop already knows how to skip. This second form — conditionally rendering a child via `&&` — is used throughout the project in exactly the form familiar from JSX code: the syntax is different (plain JS, not markup), but the problem being solved and the trick chosen to solve it are the very same.
 
 ### Further reading:
 
@@ -92,7 +92,7 @@ The same trick, repeated verbatim in two different spots of the same function, d
   https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 - MDN, **Node.appendChild** / **Document.createTextNode**:
   https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
-- MDN, **Functions and `arguments`** — what `el()`'s variadic arity rests on:
+- MDN, **Functions and `arguments`** — what `el()`'s variadic signature rests on:
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
 - **React.createElement** — the same hyperscript pattern in industrial form;
   useful to compare its signature with our `el()`:

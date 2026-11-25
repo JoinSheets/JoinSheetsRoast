@@ -11,11 +11,11 @@ updated).
 
 ### Closures: definition and a minimal example
 
-Chapter 1 already introduced the general definition: a closure is a function together with the scope it captured — the one it was created in (shown there via IIFEs and encapsulation in `JoinSheets`). It's worth pinning that definition down here with its own, maximally isolated example, before moving on to the subtler effect needed for the code walkthrough below:
+Chapter 1 already introduced the general definition: a closure is a function together with the scope it captured — the one it was created in (shown there via IIFEs and encapsulation in `JoinSheets`). It's worth pinning that definition down here with its own, completely isolated example, before moving on to the subtler effect needed for the code walkthrough below:
 
 ```js
 function makeCounter() {
-  var count = 0;              // variable of the outer function
+  var count = 0;              // the outer function's variable
   return function () {        // inner function — "remembers" count
     count += 1;
     return count;
@@ -28,7 +28,7 @@ var c2 = makeCounter();
 c2(); // 1 — c2 has its own, separate count
 ```
 
-An important detail: `c1` and `c2` are different closures, each with its own copy of `count`, because every call to `makeCounter()` creates a new scope. `view-table.js`'s code works differently: its entire IIFE runs exactly once, when the file loads (chapter 1), and every function defined inside it shares the same single copy of the variables declared at the top level of that IIFE — closer to what it would look like if `makeCounter()` were called only once for the whole application.
+An important detail: `c1` and `c2` are different closures, each with its own copy of `count`, because every call to `makeCounter()` creates a new scope. The code in `view-table.js` works differently: its entire IIFE runs exactly once, when the file loads (see chapter 1), and every function defined inside it shares the same single copy of the variables declared at the top level of that IIFE — closer to what it would look like if `makeCounter()` were called only once for the whole application.
 
 ### The module singleton
 
@@ -42,11 +42,11 @@ The trick that falls out of this single IIFE call got its own name in the JavaSc
 })();
 ```
 
-From outside the file, there's no access to `quickDraft` at all — the IIFE doesn't export it. This is what's called a module singleton: exactly one instance of state for the whole file, shared by every function inside it, unreachable from outside. In a language with a real module system (Rust, Python, modern ESM), the same idea is expressed through an explicit, built-in language feature — the `pub` keyword or its absence, the `_`-prefix convention, the module scope itself — in `view-table.js` it's achieved purely through the closure around the shared IIFE, because, as shown in chapter 1, there's no other encapsulation tool available here at all.
+From outside the file, there's no access to `quickDraft` at all — the IIFE doesn't export it. This is what's called a module singleton: exactly one instance of state for the whole file, shared by every function inside it, unreachable from outside. In a language with a real module system (Rust, Python, modern ESM), the same idea is expressed through an explicit, built-in language feature — the `pub` keyword or its absence, the `_`-prefix convention, the module scope itself; in `view-table.js` it's achieved purely through the closure around the shared IIFE, because, as shown in chapter 1, there's no other encapsulation tool available here at all.
 
 ### A closure holds a variable, not a value
 
-The most common mistake when first meeting closures is to think that a closure "snapshots a copy" of a value at the moment the function is created. In fact it holds a reference to the variable itself, to the same memory cell, and if that variable changes after the function is created, the closure will see exactly the new value, not whatever was fixed at some earlier point:
+The most common mistake when first encountering closures is to think that a closure "snapshots a copy" of a value at the moment the function is created. In fact it holds a reference to the variable itself, to the same memory cell, and if that variable changes after the function is created, the closure will see exactly the new value, not whatever was fixed at some earlier point:
 
 ```js
 var x = 1;
@@ -72,9 +72,9 @@ This effect isn't a side nuance — it's exactly the mechanism the `currentState
 - **Chrome DevTools, `getEventListeners()`** — the utility for exercise 7.6
   (works only in the DevTools console, not in page code):
   https://developer.chrome.com/docs/devtools/console/utilities#geteventlisteners-function
-- "Stale closure" — the classic stale-closure problem; well described in the
-  context of React hooks, but the underlying issue is about the language, not
-  the framework:
+- "Stale closure" — the classic problem of a closure that has gone out of
+  date; well described in the context of React hooks, but the underlying issue
+  belongs to the language, not to the framework:
   https://react.dev/reference/react/useEffect#my-effect-uses-stale-props-or-state
 - **The Rust Book, ch. 13.1** "Closures" — `Fn`/`FnMut`/`FnOnce` and `move`:
   https://doc.rust-lang.org/book/ch13-01-closures.html

@@ -11,7 +11,7 @@ description = "An advanced course for developers: a deep dive into the JoinSheet
 {{< column >}}
 # Boosting JS Project Performance with Rust
 
-An advanced course for practicing web developers. Suited to anyone who already has programming experience and wants to go deeper: get into the guts of the browser, understand the basics of in-browser memory management, learn to do low-level performance optimization, and build high-load modules in Rust.
+An advanced course for practicing web developers. Suited to anyone who already has programming experience and wants to go deeper: get into the guts of the browser, understand the basics of how the browser works with memory, learn how to optimize at a low level, and build high-performance modules in Rust.
 
 By the end of the course you will be able to read code, understand how it works under the hood, find performance bottlenecks with DevTools, and speed up your applications using Rust and WebAssembly.
 

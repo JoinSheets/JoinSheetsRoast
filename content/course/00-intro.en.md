@@ -6,23 +6,23 @@ weight = -1
 
 ## Who this course is for
 
-The course is aimed at an advanced audience: a general IT background and some programming practice (JS, Rust, or other languages), knowledge of web-development basics (HTML, CSS), and an understanding of how a browser works internally. And, of course, the desire to dig deeper: not just to read, but to gain hands-on skills, to grasp a concept apart from the noise of business logic, to see it alive in real code, to get your hands on developer tools, and, where possible, to rewrite the code your own way.
+The course is aimed at an advanced audience: a general IT background and some programming practice (JS, Rust, or other languages), knowledge of web-development basics (HTML, CSS), and an understanding of how a browser works internally. And, of course, the desire to dig deeper: not just to read, but to gain practical skills, to understand a concept in isolation from the noise of business logic, to see it live in real code, to get hands-on with the developer tools, and, where possible, to rewrite the code your own way.
 
 ## Learning tracks
 
 The course consists of several main tracks that run through every chapter, plus one bonus track:
 
-1. **Theory** — deep programming concepts, computer-science fundamentals, and how modern browsers work, with occasional historical digressions: where a given idea came from, what problem it solved, and how it was reinvented in different languages and frameworks.
+1. **Theory** — in-depth programming concepts, computer-science fundamentals, and how modern browsers work, with brief historical digressions: where a given idea came from, what problem it solved, and how it was reinvented in different languages and frameworks.
 2. **Code** — every concept from the theory is reinforced by walking through the code of a real project: genuine "messy and alive" working code, with all its trade-offs and departures from "best practice" wherever the specifics call for it.
 3. **Practice** — short 15-20 minute exercises, in a quick-task format.
-4. **DevTools** — alongside the code walkthrough, chapter by chapter, we pick up the browser's developer tools: from Sources and Console to Performance and debugging a WASM module.
+4. **DevTools** — alongside the code walkthrough, chapter by chapter, we get to grips with the browser's developer tools: from Sources and Console to Performance and debugging a WASM module.
 5. **Bonus track: Rust** — additional practice and a final project: we build a module in Rust to boost performance and hook it up to the application through WASM.
 
 You're free to work through these tracks in parallel and in full (recommended), or to pick only some of them (for example, theory and code, or Rust).
 
 ## Study format
 
-A chapter is meant for unhurried study over roughly one week:
+Each chapter is meant to be worked through unhurriedly over roughly one week:
 
 | Day | What you study |
 |---|---|
@@ -30,7 +30,7 @@ A chapter is meant for unhurried study over roughly one week:
 | 2-3 | Code: a line-by-line walkthrough of the specific places in the project where it's used |
 | 4-5 | Practice: exercises to check your understanding of the code, DevTools exercises, translating small code snippets into Rust |
 
-The whole course is designed for 10 weeks with no fixed schedule or deadlines; clarifications, expanding the theory for particular spots, and adjusting the exercises happen on request, as needed, along the way.
+The whole course is designed for 10 weeks with no fixed schedule or deadlines; clarifications, expanding the theory around specific spots, and fine-tuning the exercises happen on request, as needed, along the way.
 
 ## Codebase
 
@@ -50,7 +50,7 @@ If the JoinSheets project repository moves forward, the links in this course may
 
 ## Technical stack and tools
 
-Besides language practice, the course is designed to teach the developer tools of modern web browsers. To cover this tooling in full, rather than by a handful of breakpoints, every chapter introduces something new:
+Besides language practice, the course is designed to teach the developer tools of modern web browsers. To cover this tooling in full, rather than just its breakpoints, every chapter introduces something new:
 
 | Chapter | New in DevTools |
 |---|---|
@@ -65,11 +65,11 @@ Besides language practice, the course is designed to teach the developer tools o
 | 9 | Performance (profile, flame chart, FPS) |
 | 10 | Sources/Memory — debugging the WASM module |
 
-The DevTools exercises are read and performed from a workstation equipped with any modern browser that supports developer mode.
+The DevTools exercises are meant to be read and carried out at a workstation equipped with any modern browser that has a developer mode.
 
-Optional parallel Rust track: a short "rewrite this code in Rust" exercise appears in almost every chapter (except chapter 1, which is purely orientational, and chapter 8, a browser-only topic with no comparable Rust functionality), plus the chapter-10 capstone.
+Optional parallel Rust track: a short "rewrite this code in Rust" exercise appears in almost every chapter (except chapter 1, which is an orientation chapter, and chapter 8, a browser-only topic with no comparable Rust functionality), plus the chapter-10 capstone.
 
-Working through the Rust track requires an installed Rust compiler and an IDE to work with it.
+Working through the Rust track requires an installed Rust compiler and an IDE for working with it.
 
 ## Course program
 
