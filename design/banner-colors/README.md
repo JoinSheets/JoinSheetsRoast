@@ -45,5 +45,40 @@ Not part of the Hugo build (outside `static/`, `content/`, `config/`,
 
 Caveats noticed while reviewing: the lightest left squares in #1, #2 and #6
 have low contrast against a plain white page background (edges read soft);
-#2's border and #4/#8's more saturated light tone hold up better there. No
-pick made yet -- waiting on review.
+#2's border and #4/#8's more saturated light tone hold up better there.
+
+## Pick: squares
+
+`banner-04-orange-to-charcoal.svg` picked for the squares (left `#d98f2b`
+orange fading to `#e4a23f`, right deep charcoal fading to `#1c1b1e`).
+
+## Round 3: badge ring + inner background (`badge-NN-*.svg`, `gallery-badge.html`)
+
+Follow-up on the picked squares: the original badge had two concentric
+circles (an outer ring circle and a smaller inner circle for the
+background), which left a plain, fairly wide white band between them around
+the crab. These 8 variants drop that and use a single circle throughout (one
+fill, one stroke) to remove the band, and vary the ring color and the inner
+fill independently. Squares are fixed to the picked orange-to-charcoal
+scheme in every variant.
+
+1. `badge-01-gradient-orange-ring.svg` -- soft white-to-peach radial
+   gradient fill, ring in the left square's orange.
+2. `badge-02-flat-white-red-ring.svg` -- flat white fill, ring in a deep
+   rust-red (darker than the crab itself, for contrast against white).
+3. `badge-03-flat-peach-gold-ring.svg` -- flat peach fill, gold ring.
+4. `badge-04-flat-white-no-ring.svg` -- flat white fill, no ring at all.
+5. `badge-05-gradient-soft-charcoal-ring.svg` -- same gradient fill as #1,
+   ring in a softer charcoal (lighter than the square's own dark tone),
+   thinner stroke.
+6. `badge-06-flat-gray-gray-ring.svg` -- flat light gray fill, ring in the
+   brand's original gray (`#86868a`) -- the quietest, least saturated option.
+7. `badge-07-flat-orangetint-ring-gradient-sq.svg` -- flat pale-orange fill,
+   ring itself gradient orange-to-charcoal, echoing the squares' own gamut.
+8. `badge-08-flat-white-ring-gradient-orange-red.svg` -- flat white fill,
+   ring gradient from the square's orange to the crab's red, bridging both
+   accent colors already in the composition.
+
+Caveat: #6's gray ring is faint against a plain white page background (same
+issue as the earlier gray-accent round-2 variant). No pick made yet --
+waiting on review.
